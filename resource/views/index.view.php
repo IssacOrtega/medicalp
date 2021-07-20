@@ -31,9 +31,9 @@
 
 <body class="text-center">
 
-    <form class="form-signin">
+    <form class="form-signin" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
         <img class="mb-4" src="<?php echo RUTA . 'resource/assets/brand/Logo.png' ?>" alt="Medical Planet" width="150" height="150">
-        <h1 class="h3 mb-3 font-weight-normal">Cotiza Medical Planet</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Medical Planet</h1>
         <label for="inputUser" class="sr-only">Usuario</label>
         <input type="text" id="inputUser" name="user" class="form-control" placeholder="Usuario" required autofocus>
         <label for="inputPassword" class="sr-only">Contraseña</label>
@@ -43,12 +43,14 @@
                 <input type="checkbox" value="remember-me"> Recuerdame
             </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
+        <button class="btn btn-lg btn-primary btn-block mb-2" type="submit">Iniciar Sesión</button>
+        <?php echo $msg; ?>
         <p class="mt-5 mb-3 text-muted">Copyright &copy; Medical Planet 2021</p>
     </form>
 
 
-
+    <script src="<?php echo RUTA . 'resource/assets/js/jquery-3.6.0.min.js'; ?>"></script>
+    <script src="<?php echo RUTA . 'resource/assets/js/bootstrap.bundle.min.js'; ?>"></script>
 </body>
 
 </html>

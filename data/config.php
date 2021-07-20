@@ -14,9 +14,9 @@ $bd_config = array(
     // Nombre de dominio o host
     'host' => '127.0.0.1:33065',
     // nombre de la base de datos
-    'basededatos' => '_quotes_medicalp',
+    'db' => '_quotes_medicalp',
     // Usurio de base de datos
-    'usuario' => 'root',
+    'user' => 'root',
     // Contraseña de base de datos
     'pass' => ''
 );
