@@ -41,10 +41,10 @@
                                     <center><a class="btn btn-info"><img src="<?php echo RUTA . 'resource/assets/icons/printing.png' ?>" alt="Imprimir" width="20" height="20"></a></center>
                                 </td>
                                 <td class="align-middle">
-                                    <center><button class="btn btn-primary" data-toggle="modal" data-target="#editQuoteModal" data-id_quote="3216" data-title="Cotización Servidor" data-id_client="1" data-client="Karina Emiliano Arellano" data-date="2021-07-21" data-date_expired="2021-07-25"><img src="<?php echo RUTA . 'resource/assets/icons/edit.png' ?>" alt="Imprimir" width="20" height="20"></button></center>
+                                    <center><button class="btn btn-primary" data-toggle="modal" data-target="#editQuoteModal" data-id_quote="3216" data-title="Cotización Servidor" data-date="2021-07-21" data-date_expired="2021-07-25"><img src="<?php echo RUTA . 'resource/assets/icons/edit.png' ?>" alt="Imprimir" width="20" height="20"></button></center>
                                 </td>
                                 <td class="align-middle">
-                                    <center><button class="btn btn-danger"><img src="<?php echo RUTA . 'resource/assets/icons/trash.png' ?>" alt="Imprimir" width="20" height="20"></button></center>
+                                    <center><button class="btn btn-danger" data-toggle="modal" data-target="#deleteQuoteModal" data-id_quote="3216" data-title="Cotización Servidor"><img src="<?php echo RUTA . 'resource/assets/icons/trash.png' ?>" alt="Imprimir" width="20" height="20"></button></center>
                                 </td>
                             </tr>
                         </tbody>
@@ -123,6 +123,7 @@
                         <div class="form-group">
                             <label for="client" class="col-form-label">Seleccionar un cliente:</label>
                             <select class="form-control" id="client" name="client" required>
+                                <option selected></option>
                                 <option value="1">Jorge Uribe Cabrera</option>
                                 <option value="2">Karina Emiliano Arellano</option>
                             </select>
@@ -140,6 +141,30 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     <button type="submit" class="btn btn-primary">Actualizar</button>
                 </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal eliminar cotización -->
+    <div class="modal fade" id="deleteQuoteModal" tabindex="-1" role="dialog" aria-labelledby="deleteQuoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteQuoteModalLabel">Eliminar cotización #</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="#" method="POST">
+                    <div class="modal-body">
+                        <p id="message">¿Estas segur@ de eliminar el registro?</p>
+                        <input type="hidden" id="id_quote" name="id_quote">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </div>
                 </form>
             </div>
         </div>
