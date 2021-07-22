@@ -41,26 +41,10 @@
                                     <center><a class="btn btn-info"><img src="<?php echo RUTA . 'resource/assets/icons/printing.png' ?>" alt="Imprimir" width="20" height="20"></a></center>
                                 </td>
                                 <td class="align-middle">
-                                    <center><a class="btn btn-primary"><img src="<?php echo RUTA . 'resource/assets/icons/edit.png' ?>" alt="Imprimir" width="20" height="20"></a></center>
+                                    <center><button class="btn btn-primary" data-toggle="modal" data-target="#editQuoteModal" data-id_quote="3216" data-title="Cotización Servidor" data-id_client="1" data-client="Karina Emiliano Arellano" data-date="2021-07-21" data-date_expired="2021-07-25"><img src="<?php echo RUTA . 'resource/assets/icons/edit.png' ?>" alt="Imprimir" width="20" height="20"></button></center>
                                 </td>
                                 <td class="align-middle">
-                                    <center><a class="btn btn-danger"><img src="<?php echo RUTA . 'resource/assets/icons/trash.png' ?>" alt="Imprimir" width="20" height="20"></a></center>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="align-middle">5847</td>
-                                <td class="align-middle"><a class="btn btn-link" href="#">Cotixación cama electrica</a></td>
-                                <td class="align-middle">Jorge Uribe Cabrera</td>
-                                <td class="align-middle">Roberto Carranco Plancarte</td>
-                                <td class="align-middle">21/07/2021</td>
-                                <td class="align-middle">
-                                    <center><a class="btn btn-info"><img src="<?php echo RUTA . 'resource/assets/icons/printing.png' ?>" alt="Imprimir" width="20" height="20"></a></center>
-                                </td>
-                                <td class="align-middle">
-                                    <center><a class="btn btn-primary"><img src="<?php echo RUTA . 'resource/assets/icons/edit.png' ?>" alt="Imprimir" width="20" height="20"></a></center>
-                                </td>
-                                <td class="align-middle">
-                                    <center><a class="btn btn-danger"><img src="<?php echo RUTA . 'resource/assets/icons/trash.png' ?>" alt="Imprimir" width="20" height="20"></a></center>
+                                    <center><button class="btn btn-danger"><img src="<?php echo RUTA . 'resource/assets/icons/trash.png' ?>" alt="Imprimir" width="20" height="20"></button></center>
                                 </td>
                             </tr>
                         </tbody>
@@ -110,6 +94,51 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     <button type="submit" class="btn btn-primary">Crear</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal editar cotización -->
+    <div class="modal fade" id="editQuoteModal" tabindex="-1" role="dialog" aria-labelledby="editQuoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editQuoteModalLabel">Editar cotización</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="id_quote" class="col-form-label">ID de cotización:</label>
+                            <input type="number" class="form-control" id="id_quote" name="id_quote" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="title" class="col-form-label">Título de cotización:</label>
+                            <input type="text" class="form-control" id="title" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="client" class="col-form-label">Seleccionar un cliente:</label>
+                            <select class="form-control" id="client" name="client" required>
+                                <option value="1">Jorge Uribe Cabrera</option>
+                                <option value="2">Karina Emiliano Arellano</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date" class="col-form-label">Fecha de emisión:</label>
+                            <input type="date" class="form-control" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date_expired" class="col-form-label">Fecha de expiración:</label>
+                            <input type="date" class="form-control" id="date_expired" name="date_expired" required>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
                 </div>
                 </form>
             </div>
