@@ -1,9 +1,18 @@
-$('#exampleModal').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  var recipient = button.data('whatever') // Extract info from data-* attributes
-  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+$('#editQuoteModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var id_quote = button.data('id_quote') 
+  var title = button.data('title')
+  var id_client = button.data('id_client')
+  var client = button.data('client') 
+  var date = button.data('date')
+  var date_expired = button.data('date_expired')
+
   var modal = $(this)
-  modal.find('.modal-title').text('New message to ' + recipient)
-  modal.find('.modal-body input').val(recipient)
+  modal.find('.modal-title').text('Editar cotización #' + id_quote)
+  modal.find('.modal-body #id_quote').val(id_quote)
+  modal.find('.modal-body #title').val(title)
+  modal.find('.modal-body #date').val(date)
+  modal.find('.modal-body #date_expired').val(date_expired)
+  modal.find('.modal-body #client').prepend("<option value='" + id_client + "' selected>" + client + "</option>")
+
 });
