@@ -13,7 +13,7 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Cotizaciones</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
-                        <button type="button" class="btn btn-sm btn-outline-success">+ Nueva cotización</button>
+                        <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#newQuoteModal">+ Nueva cotización</button>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -70,8 +70,55 @@
         </div>
     </div>
 
+    <!-- Modal nueva cotización -->
+    <div class="modal fade" id="newQuoteModal" tabindex="-1" role="dialog" aria-labelledby="newQuoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newQuoteModalLabel">Nueva cotización</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="id_quote" class="col-form-label">ID de cotización:</label>
+                            <input type="number" class="form-control" id="id_quote" name="id_quote" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="title" class="col-form-label">Título de cotización:</label>
+                            <input type="text" class="form-control" id="title" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="client" class="col-form-label">Seleccionar un cliente:</label>
+                            <select class="form-control" id="client" name="client" required>
+                                <option selected></option>
+                                <option value="1">Karina Emiliano Arellano</option>
+                                <option value="2">Jorge Uribe Cabrera</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date" class="col-form-label">Fecha de emisión:</label>
+                            <input type="date" class="form-control" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date_expired" class="col-form-label">Fecha de expiración:</label>
+                            <input type="date" class="form-control" id="date_expired" name="date_expired" required>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script src="<?php echo RUTA . 'resource/assets/js/jquery-3.6.0.min.js'; ?>"></script>
     <script src="<?php echo RUTA . 'resource/assets/js/bootstrap.bundle.min.js'; ?>"></script>
+    <script src="<?php echo RUTA . 'resource/assets/js/dashboard.js'; ?>"></script>
 </body>
 
 </html>
