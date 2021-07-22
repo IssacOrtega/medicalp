@@ -27,6 +27,7 @@ if($conexion){
             $roll = roll($conexion, $user);
             $id_user = logIn($conexion, $user, $pass);
             $_SESSION['id_user'] = $id_user['id_user'];
+            $_SESSION['name'] = $id_user['name'];
             $_SESSION['user'] = $user;
             $_SESSION['roll'] = $roll['roll'];
             header('Location: ' . RUTA . 'dashboard/index.php');

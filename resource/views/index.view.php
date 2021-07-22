@@ -39,12 +39,12 @@
         <input type="text" id="inputUser" name="user" class="form-control" placeholder="Usuario" required autofocus>
         <label for="inputPassword" class="sr-only">Contraseña</label>
         <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Contraseña" required>
-        <div class="checkbox mb-3">
+        <!-- <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" value="remember-me"> Recuerdame
             </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block mb-2" type="submit">Iniciar Sesión</button>
+        </div> -->
+        <button class="btn btn-lg btn-dark btn-block mb-2" type="submit">Iniciar Sesión</button>
         <?php echo $msg; ?>
         <p class="mt-5 mb-3 text-muted">Copyright &copy; Medical Planet 2021</p>
     </form>
