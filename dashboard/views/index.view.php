@@ -33,7 +33,7 @@
                         <tbody>
                             <tr>
                                 <td class="align-middle">3216</td>
-                                <td class="align-middle"><a class="btn btn-link" href="#">Cotización Servidor</a></td>
+                                <td class="align-middle"><a class="btn btn-link" href="<?php echo RUTA . 'dashboard/quote.product.php' ?>">Cotización Servidor</a></td>
                                 <td class="align-middle">Karina Emiliano Arellano</td>
                                 <td class="align-middle">Gerardo Issac Ortega Cervantes</td>
                                 <td class="align-middle">21/07/2021</td>
@@ -114,7 +114,7 @@
                     <form action="#" method="POST">
                         <div class="form-group">
                             <label for="id_quote" class="col-form-label">ID de cotización:</label>
-                            <input type="number" class="form-control" id="id_quote" name="id_quote" required>
+                            <input type="number" class="form-control" id="id_quote" name="id_quote" disabled required>
                         </div>
                         <div class="form-group">
                             <label for="title" class="col-form-label">Título de cotización:</label>
@@ -162,7 +162,7 @@
                         <input type="hidden" id="id_quote" name="id_quote">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-danger">Eliminar</button>
                     </div>
                 </form>

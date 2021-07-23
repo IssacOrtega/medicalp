@@ -1,3 +1,4 @@
+// Funcion para rellenar campos de modal editar cotización
 $('#editQuoteModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
   var id_quote = button.data('id_quote') 
@@ -17,6 +18,7 @@ $('#editQuoteModal').on('show.bs.modal', function (event) {
 
 });
 
+// Funcion para modal de eliminar cotización
 $('#deleteQuoteModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
   var id_quote = button.data('id_quote') 
@@ -27,4 +29,35 @@ $('#deleteQuoteModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body #id_quote').val(id_quote)
   modal.find('.modal-body #message').html('¿Estas segur@ de eliminar el registro <strong>"' + title + '"</strong>?')
 
+});
+
+// Funcion para rellenar campos de productos de cotización
+$('#editProductModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var id_quote_product = button.data('id_quote_product')
+  var amount = button.data('amount')
+  var unit_price = button.data('unit_price')
+
+  var modal = $(this)
+  modal.find('.modal-title').text('Editar producto a cotizar')
+  modal.find('.modal-body #id_quote_product').val(id_quote_product)
+  modal.find('.modal-body #amount').val(amount)
+  modal.find('.modal-body #unit_price').val(unit_price)
+
+});
+
+// Funcion para modal de productos de cotización
+$('#deleteProductModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var id_quote_product = button.data('id_quote_product')
+  var modal = $(this)
+  modal.find('.modal-body #id_quote_product').val(id_quote_product)
+});
+
+// Funcion para modal de descripción
+$('#addDescriptionModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var id_quote = button.data('id_quote')
+  var modal = $(this)
+  modal.find('.modal-body #id_quote').val(id_quote)
 });
