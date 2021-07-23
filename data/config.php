@@ -9,6 +9,8 @@ setlocale(LC_ALL, "es_ES");
 // Variable definida para utilizar en los enlaces o en la reedirección
 define('RUTA', "http://{$_SERVER['SERVER_NAME']}/cotizaciones/");
 
+define('MENU', "/cotizaciones/dashboard/");
+
 //  Arreglo de configuracion de la Base de datos
 $bd_config = array(
     // Nombre de dominio o host
