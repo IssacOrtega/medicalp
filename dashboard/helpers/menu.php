@@ -15,7 +15,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo ($_SERVER['PHP_SELF'] == MENU . 'client.php') ? "active" : ""; ?>" href="#">
+                <a class="nav-link <?php echo ($_SERVER['PHP_SELF'] == MENU . 'client.php') ? "active" : ""; ?>" href="<?php echo RUTA . 'dashboard/client.php'; ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                         <circle cx="9" cy="7" r="4"></circle>
@@ -27,7 +27,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo ($_SERVER['PHP_SELF'] == MENU . 'product.php') ? "active" : ""; ?>" href="#">
+                <a class="nav-link <?php echo ($_SERVER['PHP_SELF'] == MENU . 'product.php') ? "active" : ""; ?>" href="<?php echo RUTA . 'dashboard/product.php'; ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart">
                         <circle cx="9" cy="21" r="1"></circle>
                         <circle cx="20" cy="21" r="1"></circle>
@@ -38,7 +38,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo ($_SERVER['PHP_SELF'] == MENU . 'user.php') ? "active" : ""; ?>" href="#">
+                <a class="nav-link <?php echo ($_SERVER['PHP_SELF'] == MENU . 'user.php') ? "active" : ""; ?>" href="<?php echo RUTA . 'dashboard/user.php'; ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers">
                         <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
                         <polyline points="2 17 12 22 22 17"></polyline>
