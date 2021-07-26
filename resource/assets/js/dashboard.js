@@ -61,3 +61,55 @@ $('#addDescriptionModal').on('show.bs.modal', function (event) {
   var modal = $(this)
   modal.find('.modal-body #id_quote').val(id_quote)
 });
+
+// Funcion para rellenar campos de modal ver direccion del cliente
+$('#addressModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var name = button.data('name')
+  var state = button.data('state')
+  var municipality = button.data('municipality')
+  var address = button.data('address')
+
+  var modal = $(this)
+  modal.find('.modal-title').text('Dirección de cliente (' + name + ')')
+  modal.find('.modal-body #state').text(state)
+  modal.find('.modal-body #municipality').text(municipality)
+  modal.find('.modal-body #address').text(address)
+});
+
+// Funcion para rellenar campos de modal editar cliente
+$('#editClientModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var id_client = button.data('id_client') 
+  var name = button.data('name')
+  var phone = button.data('phone')
+  var business = button.data('business')
+  var email = button.data('email')
+  var state = button.data('state')
+  var municipality = button.data('municipality')
+  var address = button.data('address')
+
+  var modal = $(this)
+  modal.find('.modal-title').text('Editar cliente (' + name + ')')
+  modal.find('.modal-body #id_client').val(id_client)
+  modal.find('.modal-body #name').val(name)
+  modal.find('.modal-body #phone').val(phone)
+  modal.find('.modal-body #business').val(business)
+  modal.find('.modal-body #email').val(email)
+  modal.find('.modal-body #state').val(state)
+  modal.find('.modal-body #municipality').val(municipality)
+  modal.find('.modal-body #address').val(address)
+});
+
+// Funcion para modal de eliminar cliente
+$('#deleteClientModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var id_client = button.data('id_client') 
+  var name = button.data('name')
+
+  var modal = $(this)
+  modal.find('.modal-title').text('Eliminar cliente ' + name)
+  modal.find('.modal-body #id_client').val(id_client)
+  modal.find('.modal-body #message').html('¿Estas segur@ de eliminar el registro de <strong>"' + name + '"</strong>?')
+
+});
