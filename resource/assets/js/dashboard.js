@@ -1,7 +1,7 @@
 // Funcion para rellenar campos de modal editar cotización
 $('#editQuoteModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
-  var id_quote = button.data('id_quote') 
+  var id_quote = button.data('id_quote')
   var title = button.data('title')
   // var id_client = button.data('id_client')
   // var client = button.data('client') 
@@ -21,7 +21,7 @@ $('#editQuoteModal').on('show.bs.modal', function (event) {
 // Funcion para modal de eliminar cotización
 $('#deleteQuoteModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
-  var id_quote = button.data('id_quote') 
+  var id_quote = button.data('id_quote')
   var title = button.data('title')
 
   var modal = $(this)
@@ -80,7 +80,7 @@ $('#addressModal').on('show.bs.modal', function (event) {
 // Funcion para rellenar campos de modal editar cliente
 $('#editClientModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
-  var id_client = button.data('id_client') 
+  var id_client = button.data('id_client')
   var name = button.data('name')
   var phone = button.data('phone')
   var business = button.data('business')
@@ -104,7 +104,7 @@ $('#editClientModal').on('show.bs.modal', function (event) {
 // Funcion para modal de eliminar cliente
 $('#deleteClientModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
-  var id_client = button.data('id_client') 
+  var id_client = button.data('id_client')
   var name = button.data('name')
 
   var modal = $(this)
@@ -112,4 +112,38 @@ $('#deleteClientModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body #id_client').val(id_client)
   modal.find('.modal-body #message').html('¿Estas segur@ de eliminar el registro de <strong>"' + name + '"</strong>?')
 
+});
+
+// Funcion para poner el nombre del input de tipo file
+$(".custom-file-input").on("change", function () {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+})
+
+// Funcion para rellenar campos de modal editar producto
+$('#productEditModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var id_product = button.data('id_product')
+  var product = button.data('product')
+  var brand = button.data('brand')
+  var image = button.data('image')
+
+  var modal = $(this)
+  modal.find('.modal-title').text('Editar producto (' + product + ')')
+  modal.find('.modal-body #id_product').val(id_product)
+  modal.find('.modal-body #product').val(product)
+  modal.find('.modal-body #brand').val(brand)
+  modal.find('.modal-body #thumb').html(image)
+});
+
+// Funcion para eliminar producto
+$('#productDeleteModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var id_product = button.data('id_product')
+  var product = button.data('product')
+
+  var modal = $(this)
+  modal.find('.modal-title').text('Eliminar producto (' + product + ')')
+  modal.find('.modal-body #id_product').val(id_product)
+  modal.find('.modal-body #message').html('¿Estas segur@ de eliminar el registro de <strong>"' + product + '"</strong>?')
 });
