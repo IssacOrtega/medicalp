@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="<?php echo RUTA . 'dashboard/'; ?>">
         <img class="mb-1" src="<?php echo RUTA . 'resource/assets/brand/Logo.png' ?>" alt="Medical Planet" width="20" height="20">
         Medical Planet
     </a>
