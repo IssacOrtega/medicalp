@@ -4,7 +4,7 @@ $('#editQuoteModal').on('show.bs.modal', function (event) {
   var id_quote = button.data('id_quote')
   var title = button.data('title')
   // var id_client = button.data('id_client')
-  // var client = button.data('client') 
+  var client = button.data('client') 
   var date = button.data('date')
   var date_expired = button.data('date_expired')
 
@@ -12,6 +12,7 @@ $('#editQuoteModal').on('show.bs.modal', function (event) {
   modal.find('.modal-title').text('Editar cotización #' + id_quote)
   modal.find('.modal-body #id_quote').val(id_quote)
   modal.find('.modal-body #title').val(title)
+  modal.find('.modal-body #client').val(client)
   modal.find('.modal-body #date').val(date)
   modal.find('.modal-body #date_expired').val(date_expired)
   // modal.find('.modal-body #client').prepend("<option value='" + id_client + "' selected>" + client + "</option>")
@@ -41,6 +42,7 @@ $('#editProductModal').on('show.bs.modal', function (event) {
   var modal = $(this)
   modal.find('.modal-title').text('Editar producto a cotizar')
   modal.find('.modal-body #id_quote_product').val(id_quote_product)
+  modal.find('.modal-body #product').val(id_quote_product)
   modal.find('.modal-body #amount').val(amount)
   modal.find('.modal-body #unit_price').val(unit_price)
 
@@ -146,4 +148,36 @@ $('#productDeleteModal').on('show.bs.modal', function (event) {
   modal.find('.modal-title').text('Eliminar producto (' + product + ')')
   modal.find('.modal-body #id_product').val(id_product)
   modal.find('.modal-body #message').html('¿Estas segur@ de eliminar el registro de <strong>"' + product + '"</strong>?')
+});
+
+// Funcion para rellenar campos de modal editar usuario
+$('#editUserModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var id_user = button.data('id_user')
+  var name = button.data('name')
+  var phone = button.data('phone')
+  var roll = button.data('roll')
+  var email = button.data('email')
+  var user = button.data('user')
+
+  var modal = $(this)
+  modal.find('.modal-title').text('Editar usuario (' + name + ')')
+  modal.find('.modal-body #id_user').val(id_user)
+  modal.find('.modal-body #name').val(name)
+  modal.find('.modal-body #phone').val(phone)
+  modal.find('.modal-body #roll').val(roll)
+  modal.find('.modal-body #email').val(email)
+  modal.find('.modal-body #user').val(user)
+});
+
+// Funcion para eliminar Usuarios
+$('#deleteUserModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var id_user = button.data('id_user')
+  var name = button.data('name')
+
+  var modal = $(this)
+  modal.find('.modal-title').text('Eliminar usuario (' + name + ')')
+  modal.find('.modal-body #id_user').val(id_user)
+  modal.find('.modal-body #message').html('¿Estas segur@ de eliminar el registro de <strong>"' + name + '"</strong>?')
 });
