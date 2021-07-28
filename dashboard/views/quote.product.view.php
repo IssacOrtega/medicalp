@@ -13,10 +13,7 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2"><a class="btn btn-light" href="<?php echo RUTA . 'dashboard/'; ?>"><img src="<?php echo RUTA . 'resource/assets/icons/flech.png' ?>" alt="Regresar" width="15" height="15"></a> Agregar Productos <small>(Cotización Servidor)</small></h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
-                        <div class="btn-group mr-2">
-                            <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#newProductModal">+ Nuevo producto</button>
-                            <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#addDescriptionModal" data-id_quote="3216">+ Añadir descripción</button>
-                        </div>
+                        <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#newProductModal">+ Nuevo producto</button>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -46,7 +43,7 @@
                                 <td class="align-middle">$14490.00MXN</td>
                                 <td class="align-middle">$16808.40MXN</td>
                                 <td class="align-middle">
-                                    <center><button class="btn btn-primary" data-toggle="modal" data-target="#editProductModal" data-id_quote_product="1" data-amount="3" data-unit_price="4830.00"><img src="<?php echo RUTA . 'resource/assets/icons/edit.png' ?>" alt="Editar" width="20" height="20"></button></center>
+                                    <center><button class="btn btn-primary" data-toggle="modal" data-target="#editProductModal" data-id_quote_product="1" data-amount="3" data-unit_price="4830.00" data-description="El concentrador de oxígeno Stratus 5 producido por 3B ™ Medical Solutions puede suministrar a un paciente con oxígeno constante en un flujo ajustable, seguro, confiable, de bajo costo. Este concentrador está cuidadosamente diseñado teniendo en cuenta el rendimiento y la fiabilidad, incluidas características únicas, como un innovador sistema de refrigeración para proteger los lechos de tamices y un monitor de pureza de oxígeno. El bajo mantenimiento, el funcionamiento ultra silencioso y la mayor presión de salida para garantizar una entrega adecuada hacen que esta unidad sea ideal para su uso en hogares, instituciones, vehículos y otros entornos móviles diversos"><img src="<?php echo RUTA . 'resource/assets/icons/edit.png' ?>" alt="Editar" width="20" height="20"></button></center>
                                 </td>
                                 <td class="align-middle">
                                     <center><button class="btn btn-danger" data-toggle="modal" data-target="#deleteProductModal" data-id_quote_product="1"><img src="<?php echo RUTA . 'resource/assets/icons/trash.png' ?>" alt="Eliminar" width="20" height="20"></button></center>
@@ -58,6 +55,48 @@
                                     El concentrador de oxígeno Stratus 5 producido por 3B ™ Medical Solutions puede suministrar a un paciente con oxígeno constante en un flujo ajustable, seguro, confiable, de bajo costo.
                                     Este concentrador está cuidadosamente diseñado teniendo en cuenta el rendimiento y la fiabilidad, incluidas características únicas, como un innovador sistema de refrigeración para proteger los lechos de tamices y un monitor de pureza de oxígeno.
                                     El bajo mantenimiento, el funcionamiento ultra silencioso y la mayor presión de salida para garantizar una entrega adecuada hacen que esta unidad sea ideal para su uso en hogares, instituciones, vehículos y otros entornos móviles diversos
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="10" class="bg-white border-0">
+                                    <hr>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7" class="bg-white border-0">
+                                </td>
+                                <td colspan="2" class="align-middle">
+                                    <strong style="font-size: medium;">Subtotal:</strong><br>
+                                </td>
+                                <td colspan="1" class="align-middle">
+                                    <strong style="font-size: medium;">$14490.00MXN</strong><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7" class="bg-white border-0">
+                                </td>
+                                <td colspan="2" class="align-middle">
+                                    <strong style="font-size: medium;">IVA:</strong><br>
+                                </td>
+                                <td colspan="1" class="align-middle">
+                                    <strong style="font-size: medium;">$2318.40MXN</strong><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7" class="bg-white border-0">
+                                </td>
+                                <td colspan="2" class="align-middle">
+                                    <strong style="font-size: medium;">Total:</strong><br>
+                                </td>
+                                <td colspan="1" class="align-middle">
+                                    <strong style="font-size: medium;">$16808.40MXN</strong><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7" class="bg-white border-0">
+                                </td>
+                                <td colspan="3" class="align-middle">
+                                    <button class="btn btn-success col-12 mb-1 mt-1">Imprimir</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -93,6 +132,10 @@
                         <div class="form-group">
                             <label for="unit_price" class="col-form-label">Precio unitario sin IVA:</label>
                             <input type="text" class="form-control" id="unit_price" name="unit_price" placeholder="$0.0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="col-form-label">Descripcion:</label>
+                            <textarea class="form-control" id="description" placeholder="Opcional"></textarea>
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -132,6 +175,10 @@
                             <label for="unit_price" class="col-form-label">Precio unitario sin IVA:</label>
                             <input type="text" class="form-control" id="unit_price" name="unit_price" placeholder="$0.0" required>
                         </div>
+                        <div class="form-group">
+                            <label for="description" class="col-form-label">Descripcion:</label>
+                            <textarea class="form-control" id="description" placeholder="Opcional"></textarea>
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -161,33 +208,6 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-danger">Eliminar</button>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal añadir descripción -->
-    <div class="modal fade" id="addDescriptionModal" tabindex="-1" role="dialog" aria-labelledby="addDescriptionModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addDescriptionModalLabel">Añadir descripción a la cotización</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="#" method="POST">
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Descripcion:</label>
-                            <input type="hidden" id="id_quote" name="id_quote">
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Agregar</button>
-                </div>
                 </form>
             </div>
         </div>

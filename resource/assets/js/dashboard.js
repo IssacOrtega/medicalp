@@ -38,6 +38,7 @@ $('#editProductModal').on('show.bs.modal', function (event) {
   var id_quote_product = button.data('id_quote_product')
   var amount = button.data('amount')
   var unit_price = button.data('unit_price')
+  var description = button.data('description')
 
   var modal = $(this)
   modal.find('.modal-title').text('Editar producto a cotizar')
@@ -45,6 +46,7 @@ $('#editProductModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body #product').val(id_quote_product)
   modal.find('.modal-body #amount').val(amount)
   modal.find('.modal-body #unit_price').val(unit_price)
+  modal.find('.modal-body #description').val(description)
 
 });
 
