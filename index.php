@@ -24,12 +24,11 @@ if($conexion){
         $pass = hash('sha256', $pass);
 
         if(logIn($conexion, $user, $pass)){
-            $roll = roll($conexion, $user);
             $id_user = logIn($conexion, $user, $pass);
             $_SESSION['id_user'] = $id_user['id_user'];
             $_SESSION['name'] = $id_user['name'];
             $_SESSION['user'] = $user;
-            $_SESSION['roll'] = $roll['roll'];
+            $_SESSION['roll'] = $id_user['roll'];
             header('Location: ' . RUTA . 'dashboard/index.php');
         } else {
 
