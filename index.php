@@ -29,7 +29,7 @@ if($conexion){
             $_SESSION['name'] = $id_user['name'];
             $_SESSION['user'] = $user;
             $_SESSION['roll'] = $id_user['roll'];
-            header('Location: ' . RUTA . 'dashboard/index.php');
+            header('Location: ' . RUTA . 'dashboard/');
         } else {
 
             $msg .= '<div class="alert alert-danger alert-dismissible fade show" role="alert">

@@ -18,5 +18,9 @@ if (!isset($_SESSION['user'])) {
     header('Location: ' . RUTA);
 }
 
+if($_SESSION['roll'] == 'Usuario'){
+    header('Location: ' . RUTA . 'dashboard/');
+}
+
 // LLamando al archivo de vista de inicio de sesión
 require 'views/user.view.php';
