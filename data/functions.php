@@ -29,11 +29,3 @@ function logIn($conexion, $user, $password)
     $result = $statement->fetch();
     return ($result) ? $result : false;
 }
-
-function roll($conexion, $user)
-{
-    $statement = $conexion->prepare("SELECT * FROM user A JOIN roll B ON B.id_roll = A.id_roll WHERE A.user = :user LIMIT 1");
-    $statement->execute(array(":user" => $user));
-    $result = $statement->fetch();
-    return ($result) ? $result : false;
-}
