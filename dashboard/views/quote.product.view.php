@@ -97,14 +97,14 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Crear</button>
+                    <button type="submit" class="btn btn-primary">Agregar</button>
                 </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Modal nueva producto a cotizar -->
+    <!-- Modal editar producto a cotizar -->
     <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -116,6 +116,7 @@
                 </div>
                 <div class="modal-body">
                     <form action="#" method="POST">
+                        <input type="hidden" id="id_quote_product" name="id_quote_product">
                         <div class="form-group">
                             <label for="product" class="col-form-label">Seleccionar un producto:</label>
                             <select class="form-control" id="product" name="product" required>
@@ -123,7 +124,6 @@
                                 <option value="1">Mesa Riñon 1 Cercha Acero Inox</option>
                             </select>
                         </div>
-                        <input type="hidden" id="id_quote_product" name="id_quote_product">
                         <div class="form-group">
                             <label for="amount" class="col-form-label">Cantidad:</label>
                             <input type="number" class="form-control" id="amount" name="amount" required>
@@ -135,7 +135,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Crear</button>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
                 </div>
                 </form>
             </div>

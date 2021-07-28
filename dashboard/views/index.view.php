@@ -41,7 +41,7 @@
                                     <center><a class="btn btn-info"><img src="<?php echo RUTA . 'resource/assets/icons/printing.png' ?>" alt="Imprimir" width="20" height="20"></a></center>
                                 </td>
                                 <td class="align-middle">
-                                    <center><button class="btn btn-primary" data-toggle="modal" data-target="#editQuoteModal" data-id_quote="3216" data-title="Cotización Servidor" data-date="2021-07-21" data-date_expired="2021-07-25"><img src="<?php echo RUTA . 'resource/assets/icons/edit.png' ?>" alt="Imprimir" width="20" height="20"></button></center>
+                                    <center><button class="btn btn-primary" data-toggle="modal" data-target="#editQuoteModal" data-id_quote="3216" data-title="Cotización Servidor" data-client="1" data-date="2021-07-21" data-date_expired="2021-07-25"><img src="<?php echo RUTA . 'resource/assets/icons/edit.png' ?>" alt="Imprimir" width="20" height="20"></button></center>
                                 </td>
                                 <td class="align-middle">
                                     <center><button class="btn btn-danger" data-toggle="modal" data-target="#deleteQuoteModal" data-id_quote="3216" data-title="Cotización Servidor"><img src="<?php echo RUTA . 'resource/assets/icons/trash.png' ?>" alt="Imprimir" width="20" height="20"></button></center>
