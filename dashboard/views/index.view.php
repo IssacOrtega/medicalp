@@ -114,7 +114,7 @@
                         </div>
                         <div class="form-group">
                             <label for="title" class="col-form-label">Título de cotización:</label>
-                            <input type="text" class="form-control" id="title" name="title" required>
+                            <input type="text" class="form-control" id="title" name="title" autocomplete="off" required>
                         </div>
                         <div class="form-group">
                             <label for="client" class="col-form-label">Seleccionar un cliente:</label>
@@ -162,7 +162,7 @@
                         </div>
                         <div class="form-group">
                             <label for="title" class="col-form-label">Título de cotización:</label>
-                            <input type="text" class="form-control" id="title" name="title" required>
+                            <input type="text" class="form-control" id="title" name="title" autocomplete="off" required>
                         </div>
                         <div class="form-group">
                             <label for="client" class="col-form-label">Seleccionar un cliente:</label>
