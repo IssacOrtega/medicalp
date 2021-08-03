@@ -14,41 +14,83 @@
                     <h1 class="h2">Cotizaciones</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#newQuoteModal">+ Nueva cotización</button>
+                        <!-- <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Para desbloquear agregar clientes y productos">
+                            <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>Disabled button</button>
+                        </span> -->
                     </div>
                 </div>
+                <?php if (!empty($msg)) {
+                    echo $msg;
+                } ?>
                 <div class="table-responsive">
-                    <table class="table table-striped table-sm">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>#</th>
-                                <th>Título</th>
-                                <th>Cliente</th>
-                                <th>Emisor</th>
-                                <th>Fecha</th>
-                                <th>Imprimir</th>
-                                <th>Editar</th>
-                                <th>Eliminar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="align-middle">3216</td>
-                                <td class="align-middle"><a class="btn btn-link" href="<?php echo RUTA . 'dashboard/quote.product.php' ?>">Cotización Servidor</a></td>
-                                <td class="align-middle">Karina Emiliano Arellano</td>
-                                <td class="align-middle">Gerardo Issac Ortega Cervantes</td>
-                                <td class="align-middle">21/07/2021</td>
-                                <td class="align-middle">
-                                    <center><a class="btn btn-info"><img src="<?php echo RUTA . 'resource/assets/icons/printing.png' ?>" alt="Imprimir" width="20" height="20"></a></center>
-                                </td>
-                                <td class="align-middle">
-                                    <center><button class="btn btn-primary" data-toggle="modal" data-target="#editQuoteModal" data-id_quote="3216" data-title="Cotización Servidor" data-client="1" data-date="2021-07-21" data-date_expired="2021-07-25"><img src="<?php echo RUTA . 'resource/assets/icons/edit.png' ?>" alt="Imprimir" width="20" height="20"></button></center>
-                                </td>
-                                <td class="align-middle">
-                                    <center><button class="btn btn-danger" data-toggle="modal" data-target="#deleteQuoteModal" data-id_quote="3216" data-title="Cotización Servidor"><img src="<?php echo RUTA . 'resource/assets/icons/trash.png' ?>" alt="Imprimir" width="20" height="20"></button></center>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <?php if ($quotations) : ?>
+                        <table class="table table-striped table-sm">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Título</th>
+                                    <th>Cliente</th>
+                                    <th>Emisor</th>
+                                    <th>Fecha</th>
+                                    <th>Imprimir</th>
+                                    <th>Editar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($quotations as $quote) :
+                                    $quote_product_exist = quote_product_exist($conexion, $quote['id_quote']) ?>
+                                    <tr>
+                                        <td class="align-middle"><?php echo $quote['id_quote_client'] ?></td>
+                                        <td class="align-middle"><a class="btn btn-link" href="<?php echo RUTA . 'dashboard/quote.product.php?id_quote=' . $quote['id_quote'] ?>"><?php echo $quote['title'] ?></a></td>
+                                        <td class="align-middle"><?php echo $quote['name_client'] ?></td>
+                                        <td class="align-middle"><?php echo $quote['name'] ?></td>
+                                        <td class="align-middle"><?php echo $quote['date'] ?></td>
+                                        <?php if ($quote_product_exist) : ?>
+                                            <td class="align-middle">
+                                                <center><a class="btn btn-info"><img src="<?php echo RUTA . 'resource/assets/icons/printing.png' ?>" alt="Imprimir" width="20" height="20"></a></center>
+                                            </td>
+                                        <?php else : ?>
+                                            <td class="align-middle">
+                                                <center><a class="btn btn-secondary disabled"><img src="<?php echo RUTA . 'resource/assets/icons/printing.png' ?>" alt="Imprimir" width="20" height="20" disabled></a></center>
+                                            </td>
+                                        <?php endif; ?>
+                                        <td class="align-middle">
+                                            <center><button class="btn btn-primary" data-toggle="modal" data-target="#editQuoteModal" data-id_quote="<?php echo $quote['id_quote']; ?>" data-id_quote_client="<?php echo $quote['id_quote_client']; ?>" data-title="<?php echo $quote['title']; ?>" data-client="<?php echo $quote['id_client']; ?>" data-date="<?php echo $quote['date']; ?>" data-date_expired="<?php echo $quote['validity']; ?>"><img src="<?php echo RUTA . 'resource/assets/icons/edit.png' ?>" alt="Imprimir" width="20" height="20"></button></center>
+                                        </td>
+                                        <td class="align-middle">
+                                            <center><button class="btn btn-danger" data-toggle="modal" data-target="#deleteQuoteModal" data-id_quote="<?php echo $quote['id_quote']; ?>" data-id_quote_client="<?php echo $quote['id_quote_client']; ?>" data-title="<?php echo $quote['title']; ?>"><img src="<?php echo RUTA . 'resource/assets/icons/trash.png' ?>" alt="Imprimir" width="20" height="20"></button></center>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                        <!-- ---------------------------------------------------------------------------------------------- -->
+                    <?php else : ?>
+                        <table class="table table-striped table-sm">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Título</th>
+                                    <th>Cliente</th>
+                                    <th>Emisor</th>
+                                    <th>Fecha</th>
+                                    <th>Imprimir</th>
+                                    <th>Editar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th colspan="8">
+                                        <center>
+                                            <strong style="font-size: 25px;">No hay datos.</strong>
+                                        </center>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    <?php endif; ?>
                 </div>
             </main>
         </div>
@@ -65,7 +107,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="#" method="POST">
+                    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                         <div class="form-group">
                             <label for="id_quote" class="col-form-label">ID de cotización:</label>
                             <input type="number" class="form-control" id="id_quote" name="id_quote" required>
@@ -78,8 +120,9 @@
                             <label for="client" class="col-form-label">Seleccionar un cliente:</label>
                             <select class="form-control" id="client" name="client" required>
                                 <option selected></option>
-                                <option value="1">Karina Emiliano Arellano</option>
-                                <option value="2">Jorge Uribe Cabrera</option>
+                                <?php foreach ($clients as $client) : ?>
+                                    <option value="<?php echo $client['id_client'] ?>"><?php echo $client['name_client'] ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -111,10 +154,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="#" method="POST">
+                    <form action="<?php echo htmlspecialchars(RUTA . '/dashboard/routes/quotation/edit.php'); ?>" method="POST">
+                        <input type="hidden" id="id_quote" name="id_quote">
                         <div class="form-group">
-                            <label for="id_quote" class="col-form-label">ID de cotización:</label>
-                            <input type="number" class="form-control" id="id_quote" name="id_quote" disabled required>
+                            <label for="id_quote_client" class="col-form-label">ID de cotización:</label>
+                            <input type="number" class="form-control" id="id_quote_client" name="id_quote_client" required>
                         </div>
                         <div class="form-group">
                             <label for="title" class="col-form-label">Título de cotización:</label>
@@ -124,8 +168,9 @@
                             <label for="client" class="col-form-label">Seleccionar un cliente:</label>
                             <select class="form-control" id="client" name="client" required>
                                 <option selected></option>
-                                <option value="1">Jorge Uribe Cabrera</option>
-                                <option value="2">Karina Emiliano Arellano</option>
+                                <?php foreach ($clients as $client) : ?>
+                                    <option value="<?php echo $client['id_client'] ?>"><?php echo $client['name_client'] ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -156,7 +201,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="#" method="POST">
+                <form action="<?php echo htmlspecialchars(RUTA . '/dashboard/routes/quotation/delete.php'); ?>" method="POST">
                     <div class="modal-body">
                         <p id="message">¿Estas segur@ de eliminar el registro?</p>
                         <input type="hidden" id="id_quote" name="id_quote">
