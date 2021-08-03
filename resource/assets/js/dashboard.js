@@ -2,6 +2,7 @@
 $('#editQuoteModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
   var id_quote = button.data('id_quote')
+  var id_quote_client = button.data('id_quote_client')
   var title = button.data('title')
   // var id_client = button.data('id_client')
   var client = button.data('client') 
@@ -9,8 +10,9 @@ $('#editQuoteModal').on('show.bs.modal', function (event) {
   var date_expired = button.data('date_expired')
 
   var modal = $(this)
-  modal.find('.modal-title').text('Editar cotización #' + id_quote)
+  modal.find('.modal-title').text('Editar cotización #' + id_quote_client)
   modal.find('.modal-body #id_quote').val(id_quote)
+  modal.find('.modal-body #id_quote_client').val(id_quote_client)
   modal.find('.modal-body #title').val(title)
   modal.find('.modal-body #client').val(client)
   modal.find('.modal-body #date').val(date)
@@ -23,10 +25,11 @@ $('#editQuoteModal').on('show.bs.modal', function (event) {
 $('#deleteQuoteModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
   var id_quote = button.data('id_quote')
+  var id_quote_client = button.data('id_quote_client')
   var title = button.data('title')
 
   var modal = $(this)
-  modal.find('.modal-title').text('Eliminar cotización #' + id_quote)
+  modal.find('.modal-title').text('Eliminar cotización #' + id_quote_client)
   modal.find('.modal-body #id_quote').val(id_quote)
   modal.find('.modal-body #message').html('¿Estas segur@ de eliminar el registro <strong>"' + title + '"</strong>?')
 
@@ -183,3 +186,8 @@ $('#deleteUserModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body #id_user').val(id_user)
   modal.find('.modal-body #message').html('¿Estas segur@ de eliminar el registro de <strong>"' + name + '"</strong>?')
 });
+
+// funcion para agregar el tooltip al boton de nueva cotización
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
