@@ -9,6 +9,11 @@ require '../data/config.php';
 // Llamando al archivo de funciones
 require '../data/functions.php';
 
+// variable de mensajes
+$msg = '';
+
+// Insertando la conexion de la base de datos
+$conexion = conexion($bd_config);
 
 
 
