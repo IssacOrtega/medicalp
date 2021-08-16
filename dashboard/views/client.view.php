@@ -76,11 +76,11 @@
                         </div>
                         <div class="form-group">
                             <label for="email" class="col-form-label">Email:</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="(Opcional)">
                         </div>
                         <div class="form-group">
                             <label for="state" class="col-form-label">País/Estado/Zona:</label>
-                            <input type="text" class="form-control" id="state" name="state" placeholder="(Opcional)">
+                            <input type="text" class="form-control" id="state" name="state" required>
                         </div>
                         <div class="form-group">
                             <label for="municipality" class="col-form-label">Municipio/C.P.:</label>

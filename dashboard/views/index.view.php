@@ -45,7 +45,7 @@
                                         <td class="align-middle"><a class="btn btn-link" href="<?php echo RUTA . 'dashboard/quote.product.php?id_quote=' . $quote['id_quote'] ?>"><?php echo $quote['title'] ?></a></td>
                                         <td class="align-middle"><?php echo $quote['name_client'] ?></td>
                                         <td class="align-middle"><?php echo $quote['name'] ?></td>
-                                        <td class="align-middle"><?php echo $quote['date'] ?></td>
+                                        <td class="align-middle"><?php echo date('d/m/Y', strtotime($quote['date'])); ?></td>
                                         <?php if ($quote_product_exist) : ?>
                                             <td class="align-middle">
                                                 <center><a class="btn btn-info"><img src="<?php echo RUTA . 'resource/assets/icons/printing.png' ?>" alt="Imprimir" width="20" height="20"></a></center>
@@ -109,10 +109,6 @@
                 <div class="modal-body">
                     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                         <div class="form-group">
-                            <label for="id_quote" class="col-form-label">ID de cotización:</label>
-                            <input type="number" class="form-control" id="id_quote" name="id_quote" required>
-                        </div>
-                        <div class="form-group">
                             <label for="title" class="col-form-label">Título de cotización:</label>
                             <input type="text" class="form-control" id="title" name="title" autocomplete="off" required>
                         </div>
@@ -124,10 +120,6 @@
                                     <option value="<?php echo $client['id_client'] ?>"><?php echo $client['name_client'] ?></option>
                                 <?php endforeach; ?>
                             </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="date" class="col-form-label">Fecha de emisión:</label>
-                            <input type="date" class="form-control" id="date" name="date" required>
                         </div>
                         <div class="form-group">
                             <label for="date_expired" class="col-form-label">Fecha de expiración:</label>
@@ -156,10 +148,7 @@
                 <div class="modal-body">
                     <form action="<?php echo htmlspecialchars(RUTA . '/dashboard/routes/quotation/edit.php'); ?>" method="POST">
                         <input type="hidden" id="id_quote" name="id_quote">
-                        <div class="form-group">
-                            <label for="id_quote_client" class="col-form-label">ID de cotización:</label>
-                            <input type="number" class="form-control" id="id_quote_client" name="id_quote_client" required>
-                        </div>
+                        <input type="hidden" id="id_quote_client" name="id_quote_client">
                         <div class="form-group">
                             <label for="title" class="col-form-label">Título de cotización:</label>
                             <input type="text" class="form-control" id="title" name="title" autocomplete="off" required>
@@ -172,10 +161,6 @@
                                     <option value="<?php echo $client['id_client'] ?>"><?php echo $client['name_client'] ?></option>
                                 <?php endforeach; ?>
                             </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="date" class="col-form-label">Fecha de emisión:</label>
-                            <input type="date" class="form-control" id="date" name="date" required>
                         </div>
                         <div class="form-group">
                             <label for="date_expired" class="col-form-label">Fecha de expiración:</label>
