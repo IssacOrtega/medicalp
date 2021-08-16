@@ -14,25 +14,23 @@ $conexion = conexion($bd_config);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_quote = filter_var(cleanData($_POST['id_quote']),  FILTER_SANITIZE_STRING);
-    $id_quote_client = filter_var(cleanData($_POST['id_quote_client']),  FILTER_SANITIZE_STRING);
+    // $id_quote_client = filter_var(cleanData($_POST['id_quote_client']),  FILTER_SANITIZE_STRING);
     $title = filter_var(cleanData($_POST['title']), FILTER_SANITIZE_STRING);
     $client = filter_var(cleanData($_POST['client']),  FILTER_VALIDATE_INT, FILTER_SANITIZE_NUMBER_INT);
-    $date = filter_var(cleanData($_POST['date']), FILTER_SANITIZE_STRING);
+    // $date = filter_var(cleanData($_POST['date']), FILTER_SANITIZE_STRING);
     $date_expired = filter_var(cleanData($_POST['date_expired']), FILTER_SANITIZE_STRING);
 
-    if (empty($id_quote) || empty($id_quote_client) || empty($title) || empty($client) || empty($date) || empty($date_expired)) {
+    if (empty($id_quote) || empty($title) || empty($client) || empty($date_expired)) {
         $_SESSION['empty'] = '1';
         header('Location:' . RUTA . 'dashboard/');
     } else {
         $statement = $conexion->prepare('UPDATE quotation 
-        SET id_quote_client = :id_quote_client, title = :title, date = :date, validity = :date_expired, id_client = :id_client
+        SET title = :title, validity = :date_expired, id_client = :id_client
         WHERE id_quote = :id_quote');
 
         $statement->execute(array(
             ':id_quote' => $id_quote,
-            ':id_quote_client' => $id_quote_client,
             ':title' => $title,
-            ':date' => $date,
             ':date_expired' => $date_expired,
             ':id_client' => $client,
         ));
