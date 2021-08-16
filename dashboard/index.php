@@ -17,11 +17,24 @@ $conexion = conexion($bd_config);
 
 
 if ($_SESSION['roll'] != 'Usuario') {
-    // Trae todas las cotizaciones
-    $quotations = quotations($conexion);
+    if(!isset($_GET['search'])){
+        // Trae todas las cotizaciones
+        $quotations = quotations($conexion, null);
+    } else {
+        $search = filter_var(cleanData($_GET['search']), FILTER_SANITIZE_STRING);
+        // Trae todas las cotizaciones
+        $quotations = quotations($conexion, $search);
+    }
+    
 } else {
-    // Trae todas las cotizaciones
-    $quotations = quotations_user($conexion, $_SESSION['id_user']);
+    if (!isset($_GET['search'])) {
+        // Trae todas las cotizaciones
+        $quotations = quotations_user($conexion, $_SESSION['id_user'], null);
+    } else {
+        $search = filter_var(cleanData($_GET['search']), FILTER_SANITIZE_STRING);
+        // Trae todas las cotizaciones
+        $quotations = quotations_user($conexion, $_SESSION['id_user'], $search);
+    }
 }
 
 // Trae todo el catalogo de clientes
@@ -83,10 +96,10 @@ if (isset($_SESSION['exist'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id_quote = filter_var(cleanData($_POST['id_quote']),  FILTER_SANITIZE_STRING);
+    $id_quote = mt_rand() . mt_rand(1, 99);
     $title = filter_var(cleanData($_POST['title']), FILTER_SANITIZE_STRING);
     $client = filter_var(cleanData($_POST['client']),  FILTER_SANITIZE_STRING);
-    $date = filter_var(cleanData($_POST['date']), FILTER_SANITIZE_STRING);
+    $date = date('Y-m-d');
     $date_expired = filter_var(cleanData($_POST['date_expired']), FILTER_SANITIZE_STRING);
     $id_user = $_SESSION['id_user'];
 
