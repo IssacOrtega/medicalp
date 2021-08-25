@@ -30,32 +30,27 @@ function logIn($conexion, $user, $password)
     return ($result) ? $result : false;
 }
 
-// Funcion para traer todas las cotizaciones de administrador
-function quotations($conexion, $search = null)
+// Funcion para traer todas las cotizaciones de administrador o de usuario y tambien las de busqueda
+function quotations($conexion, $id_user = null, $search = null)
 {
-    if($search == null){
-        $statement = $conexion->query('SELECT a.id_quote, a.id_quote_client, a.title, a.date, a.validity, b.id_client, b.name_client, c.name 
-        FROM quotation a INNER JOIN client b ON a.id_client = b.id_client INNER JOIN user c ON a.id_user = c.id_user ORDER BY id_quote DESC');
-    } else {
-        $statement = $conexion->query("SELECT a.id_quote, a.id_quote_client, a.title, a.date, a.validity, b.id_client, b.name_client, c.name 
+    if($id_user == null) {
+        if ($search == null) {
+            $statement = $conexion->query("SELECT SQL_CALC_FOUND_ROWS a.id_quote, a.id_quote_client, a.title, a.date, a.validity, b.id_client, b.name_client, c.name 
+        FROM quotation a INNER JOIN client b ON a.id_client = b.id_client INNER JOIN user c ON a.id_user = c.id_user ORDER BY id_quote DESC");
+        } else {
+            $statement = $conexion->query("SELECT a.id_quote, a.id_quote_client, a.title, a.date, a.validity, b.id_client, b.name_client, c.name 
         FROM quotation a INNER JOIN client b ON a.id_client = b.id_client INNER JOIN user c ON a.id_user = c.id_user WHERE a.id_quote_client LIKE '%$search%' 
         OR a.title LIKE '%$search%' OR b.name_client LIKE '%$search%' OR c.name LIKE '%$search%' ORDER BY id_quote DESC");
-    }
-
-    $resultado = $statement->fetchAll();
-    return ($resultado) ? $resultado : false;
-}
-
-// Funcion para traer todas las cotizaciones de administrador
-function quotations_user($conexion, $id_user, $search = null)
-{
-    if ($search == null) {
-        $statement = $conexion->query("SELECT a.id_quote, a.id_quote_client, a.title, a.date, a.validity, b.id_client, b.name_client, c.name 
-        FROM quotation a INNER JOIN client b ON a.id_client = b.id_client INNER JOIN user c ON a.id_user = c.id_user WHERE a.id_user = $id_user ORDER BY id_quote DESC");
+        }
     } else {
-        $statement = $conexion->query("SELECT a.id_quote, a.id_quote_client, a.title, a.date, a.validity, b.id_client, b.name_client, c.name 
+        if ($search == null) {
+            $statement = $conexion->query("SELECT SQL_CALC_FOUND_ROWS a.id_quote, a.id_quote_client, a.title, a.date, a.validity, b.id_client, b.name_client, c.name 
+        FROM quotation a INNER JOIN client b ON a.id_client = b.id_client INNER JOIN user c ON a.id_user = c.id_user WHERE a.id_user = $id_user ORDER BY id_quote DESC");
+        } else {
+            $statement = $conexion->query("SELECT a.id_quote, a.id_quote_client, a.title, a.date, a.validity, b.id_client, b.name_client, c.name 
         FROM quotation a INNER JOIN client b ON a.id_client = b.id_client INNER JOIN user c ON a.id_user = c.id_user WHERE (a.id_quote_client LIKE '%$search%' 
         OR a.title LIKE '%$search%' OR b.name_client LIKE '%$search%') AND a.id_user = $id_user ORDER BY id_quote DESC");
+        }
     }
     $resultado = $statement->fetchAll();
     return ($resultado) ? $resultado : false;
