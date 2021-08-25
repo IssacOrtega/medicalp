@@ -9,7 +9,7 @@
     </button>
     <?php if ($_SERVER['PHP_SELF'] != MENU . 'quote.product.php') : ?>
         <form class="w-100" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-            <input class="form-control form-control-dark w-100" type="text" name="search" placeholder="Buscar" aria-label="Search">
+            <input class="form-control form-control-dark w-100" type="text" name="search" autocomplete="off" placeholder="Buscar" aria-label="Search">
         </form>
     <?php endif; ?>
     <ul class="navbar-nav px-3">
