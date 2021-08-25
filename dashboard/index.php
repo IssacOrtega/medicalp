@@ -19,21 +19,20 @@ $conexion = conexion($bd_config);
 if ($_SESSION['roll'] != 'Usuario') {
     if(!isset($_GET['search'])){
         // Trae todas las cotizaciones
-        $quotations = quotations($conexion, null);
+        $quotations = quotations($conexion, null, null);
     } else {
         $search = filter_var(cleanData($_GET['search']), FILTER_SANITIZE_STRING);
         // Trae todas las cotizaciones
-        $quotations = quotations($conexion, $search);
+        $quotations = quotations($conexion, null, $search);
     }
-    
 } else {
     if (!isset($_GET['search'])) {
         // Trae todas las cotizaciones
-        $quotations = quotations_user($conexion, $_SESSION['id_user'], null);
+        $quotations = quotations($conexion, $_SESSION['id_user'], null);
     } else {
         $search = filter_var(cleanData($_GET['search']), FILTER_SANITIZE_STRING);
         // Trae todas las cotizaciones
-        $quotations = quotations_user($conexion, $_SESSION['id_user'], $search);
+        $quotations = quotations($conexion, $_SESSION['id_user'], $search);
     }
 }
 
