@@ -23,6 +23,7 @@
                                 <th>Imagen</th>
                                 <th>Producto</th>
                                 <th>Marca</th>
+                                <th>Precio unitario sin IVA</th>
                                 <th>Editar</th>
                                 <th>Eliminar</th>
                             </tr>
@@ -32,11 +33,20 @@
                                 <td class="align-middle"><img src="<?php echo RUTA . 'resource/assets/products/mesa.jpg' ?>" alt="" width="60" height="60"></td>
                                 <td class="align-middle">Mesa Riñon 1 Cercha Acero Inox</td>
                                 <td class="align-middle">MEDPLAN</td>
+                                <td class="align-middle">$4830.00</td>
                                 <td class="align-middle">
                                     <center><button class="btn btn-primary" data-toggle="modal" data-target="#productEditModal" data-id_product="1" data-product="Mesa Riñon 1 Cercha Acero Inox" data-brand="MEDPLAN" data-image='<img src="<?php echo RUTA . 'resource/assets/products/mesa.jpg' ?>" class="col-12">'><img src="<?php echo RUTA . 'resource/assets/icons/edit.png' ?>" alt="Editar" width="20" height="20"></button></center>
                                 </td>
                                 <td class="align-middle">
                                     <center><button class="btn btn-danger" data-toggle="modal" data-target="#productDeleteModal" data-id_product="1" data-product="Mesa Riñon 1 Cercha Acero Inox"><img src="<?php echo RUTA . 'resource/assets/icons/trash.png' ?>" alt="Eliminar" width="20" height="20"></button></center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7">
+                                    <strong style="font-size: medium;">Descripción:</strong><br>
+                                    El concentrador de oxígeno Stratus 5 producido por 3B ™ Medical Solutions puede suministrar a un paciente con oxígeno constante en un flujo ajustable, seguro, confiable, de bajo costo.
+                                    Este concentrador está cuidadosamente diseñado teniendo en cuenta el rendimiento y la fiabilidad, incluidas características únicas, como un innovador sistema de refrigeración para proteger los lechos de tamices y un monitor de pureza de oxígeno.
+                                    El bajo mantenimiento, el funcionamiento ultra silencioso y la mayor presión de salida para garantizar una entrega adecuada hacen que esta unidad sea ideal para su uso en hogares, instituciones, vehículos y otros entornos móviles diversos
                                 </td>
                             </tr>
                         </tbody>
@@ -65,6 +75,23 @@
                         <div class="form-group">
                             <label for="brand" class="col-form-label">Marca:</label>
                             <input type="text" class="form-control" id="brand" name="brand" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="iva" class="col-form-label">Porcentaje de impuesto (IVA):</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="iva" name="iva" placeholder="%" value="16" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="price" class="col-form-label">Precio unitario sin IVA:</label>
+                            <input type="text" class="form-control" id="price" name="price" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="col-form-label">Descripción:</label>
+                            <textarea class="form-control" id="description" placeholder="Opcional"></textarea>
                         </div>
                         <label for="exampleFormControlFile1">Foto:</label>
                         <div class="custom-file">
@@ -101,6 +128,23 @@
                         <div class="form-group">
                             <label for="brand" class="col-form-label">Marca:</label>
                             <input type="text" class="form-control" id="brand" name="brand" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="iva" class="col-form-label">Porcentaje de impuesto (IVA):</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="iva" name="iva" placeholder="%" value="16" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="price" class="col-form-label">Precio unitario sin IVA:</label>
+                            <input type="text" class="form-control" id="price" name="price" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="col-form-label">Descripción:</label>
+                            <textarea class="form-control" id="description" placeholder="Opcional"></textarea>
                         </div>
                         <label for="exampleFormControlFile1">Foto:</label>
                         <div class="custom-file">
