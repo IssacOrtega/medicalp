@@ -190,4 +190,4 @@ $('#deleteUserModal').on('show.bs.modal', function (event) {
 // funcion para agregar el tooltip al boton de nueva cotización
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
-})
+});
