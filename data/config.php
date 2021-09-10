@@ -14,7 +14,7 @@ define('MENU', "/cotizaciones/dashboard/");
 //  Arreglo de configuracion de la Base de datos
 $bd_config = array(
     // Nombre de dominio o host
-    'host' => '127.0.0.1:33065',
+    'host' => '127.0.0.1:3306',
     // nombre de la base de datos
     'db' => '_quotes_medicalp',
     // Usurio de base de datos
