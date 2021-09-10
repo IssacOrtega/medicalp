@@ -11,7 +11,7 @@
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2"><a class="btn btn-light" href="<?php echo RUTA . 'dashboard/'; ?>"><img src="<?php echo RUTA . 'resource/assets/icons/flech.png' ?>" alt="Regresar" width="15" height="15"></a> Agregar Productos <small>(Cotización Servidor)</small></h1>
+                    <h1 class="h2"><a class="btn btn-light" href="<?php echo RUTA . 'dashboard/'; ?>"><img src="<?php echo RUTA . 'resource/assets/icons/flech.png' ?>" alt="Regresar" width="15" height="15"></a> Agregar Productos <small>(Cotización Mesa Riñon)</small></h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#newProductModal">+ Nuevo producto</button>
                     </div>
@@ -51,7 +51,7 @@
                             </tr>
                             <tr>
                                 <td colspan="10">
-                                    <strong style="font-size: medium;">Descripción:</strong><br>
+                                    <strong style="font-size: medium;">Notas:</strong><br>
                                     El concentrador de oxígeno Stratus 5 producido por 3B ™ Medical Solutions puede suministrar a un paciente con oxígeno constante en un flujo ajustable, seguro, confiable, de bajo costo.
                                     Este concentrador está cuidadosamente diseñado teniendo en cuenta el rendimiento y la fiabilidad, incluidas características únicas, como un innovador sistema de refrigeración para proteger los lechos de tamices y un monitor de pureza de oxígeno.
                                     El bajo mantenimiento, el funcionamiento ultra silencioso y la mayor presión de salida para garantizar una entrega adecuada hacen que esta unidad sea ideal para su uso en hogares, instituciones, vehículos y otros entornos móviles diversos
@@ -130,12 +130,8 @@
                             <input type="number" class="form-control" id="amount" name="amount" required>
                         </div>
                         <div class="form-group">
-                            <label for="unit_price" class="col-form-label">Precio unitario sin IVA:</label>
-                            <input type="text" class="form-control" id="unit_price" name="unit_price" placeholder="$0.0" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="description" class="col-form-label">Descripcion:</label>
-                            <textarea class="form-control" id="description" placeholder="Opcional"></textarea>
+                            <label for="note" class="col-form-label">Nota:</label>
+                            <textarea class="form-control" id="note" placeholder="Opcional"></textarea>
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -172,12 +168,8 @@
                             <input type="number" class="form-control" id="amount" name="amount" required>
                         </div>
                         <div class="form-group">
-                            <label for="unit_price" class="col-form-label">Precio unitario sin IVA:</label>
-                            <input type="text" class="form-control" id="unit_price" name="unit_price" placeholder="$0.0" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="description" class="col-form-label">Descripcion:</label>
-                            <textarea class="form-control" id="description" placeholder="Opcional"></textarea>
+                            <label for="note" class="col-form-label">Nota:</label>
+                            <textarea class="form-control" id="note" placeholder="Opcional"></textarea>
                         </div>
                 </div>
                 <div class="modal-footer">
