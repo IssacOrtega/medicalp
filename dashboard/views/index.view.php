@@ -42,7 +42,7 @@
                                     $quote_product_exist = quote_product_exist($conexion, $quote['id_quote']) ?>
                                     <tr>
                                         <td class="align-middle"><?php echo $quote['id_quote_client'] ?></td>
-                                        <td class="align-middle"><a class="btn btn-link" href="<?php echo RUTA . 'dashboard/quote.product.php?id_quote=' . $quote['id_quote'] ?>"><?php echo $quote['title'] ?></a></td>
+                                        <td class="align-middle"><a class="btn btn-link" href="<?php echo RUTA . 'dashboard/quote.product.php?id_quote=' .  base64_encode($quote['id_quote']) . '&title=' . base64_encode($quote['title']); ?>"><?php echo $quote['title'] ?></a></td>
                                         <td class="align-middle"><?php echo $quote['name_client'] ?></td>
                                         <td class="align-middle"><?php echo $quote['name'] ?></td>
                                         <td class="align-middle"><?php echo date('d/m/Y', strtotime($quote['date'])); ?></td>
