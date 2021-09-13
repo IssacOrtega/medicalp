@@ -1,7 +1,7 @@
 <?php
 
 date_default_timezone_set('Mexico/General');
-setlocale(LC_ALL, "es_ES");
+setlocale(LC_ALL, "es_MX");
 
 // Borrar reportes de error para produccion
 // error_reporting(0);
