@@ -11,96 +11,138 @@
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2"><a class="btn btn-light" href="<?php echo RUTA . 'dashboard/'; ?>"><img src="<?php echo RUTA . 'resource/assets/icons/flech.png' ?>" alt="Regresar" width="15" height="15"></a> Agregar Productos <small>(Cotización Mesa Riñon)</small></h1>
+                    <h1 class="h2"><a class="btn btn-light" href="<?php echo RUTA . 'dashboard/'; ?>"><img src="<?php echo RUTA . 'resource/assets/icons/flech.png' ?>" alt="Regresar" width="15" height="15"></a> Agregar Productos <small>(Cotización <?php echo $title; ?>)</small></h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#newProductModal">+ Nuevo producto</button>
                     </div>
                 </div>
+                <?php if (!empty($msg)) {
+                    echo $msg;
+                } ?>
                 <div class="table-responsive">
-                    <table class="table table-striped table-sm">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>Imagen</th>
-                                <th>Producto</th>
-                                <th>Marca</th>
-                                <th>Cantidad</th>
-                                <th>Precio unitario sin IVA</th>
-                                <th>Precio unitario con IVA</th>
-                                <th>Precio total sin IVA</th>
-                                <th>Precio total con IVA</th>
-                                <th>Editar</th>
-                                <th>Eliminar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="align-middle"><img src="<?php echo RUTA . 'resource/assets/products/mesa.jpg' ?>" alt="" width="60" height="60"></td>
-                                <td class="align-middle">Mesa Riñon 1 Cercha Acero Inox</td>
-                                <td class="align-middle">MEDPLAN</td>
-                                <td class="align-middle">3</td>
-                                <td class="align-middle">$4830.00MXN</td>
-                                <td class="align-middle">$5602.80MXN</td>
-                                <td class="align-middle">$14490.00MXN</td>
-                                <td class="align-middle">$16808.40MXN</td>
-                                <td class="align-middle">
-                                    <center><button class="btn btn-primary" data-toggle="modal" data-target="#editProductModal" data-id_quote_product="1" data-amount="3" data-unit_price="4830.00" data-description="El concentrador de oxígeno Stratus 5 producido por 3B ™ Medical Solutions puede suministrar a un paciente con oxígeno constante en un flujo ajustable, seguro, confiable, de bajo costo. Este concentrador está cuidadosamente diseñado teniendo en cuenta el rendimiento y la fiabilidad, incluidas características únicas, como un innovador sistema de refrigeración para proteger los lechos de tamices y un monitor de pureza de oxígeno. El bajo mantenimiento, el funcionamiento ultra silencioso y la mayor presión de salida para garantizar una entrega adecuada hacen que esta unidad sea ideal para su uso en hogares, instituciones, vehículos y otros entornos móviles diversos"><img src="<?php echo RUTA . 'resource/assets/icons/edit.png' ?>" alt="Editar" width="20" height="20"></button></center>
-                                </td>
-                                <td class="align-middle">
-                                    <center><button class="btn btn-danger" data-toggle="modal" data-target="#deleteProductModal" data-id_quote_product="1"><img src="<?php echo RUTA . 'resource/assets/icons/trash.png' ?>" alt="Eliminar" width="20" height="20"></button></center>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="10">
-                                    <strong style="font-size: medium;">Notas:</strong><br>
-                                    El concentrador de oxígeno Stratus 5 producido por 3B ™ Medical Solutions puede suministrar a un paciente con oxígeno constante en un flujo ajustable, seguro, confiable, de bajo costo.
-                                    Este concentrador está cuidadosamente diseñado teniendo en cuenta el rendimiento y la fiabilidad, incluidas características únicas, como un innovador sistema de refrigeración para proteger los lechos de tamices y un monitor de pureza de oxígeno.
-                                    El bajo mantenimiento, el funcionamiento ultra silencioso y la mayor presión de salida para garantizar una entrega adecuada hacen que esta unidad sea ideal para su uso en hogares, instituciones, vehículos y otros entornos móviles diversos
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="10" class="bg-white border-0">
-                                    <hr>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="7" class="bg-white border-0">
-                                </td>
-                                <td colspan="2" class="align-middle">
-                                    <strong style="font-size: medium;">Subtotal:</strong><br>
-                                </td>
-                                <td colspan="1" class="align-middle">
-                                    <strong style="font-size: medium;">$14490.00MXN</strong><br>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="7" class="bg-white border-0">
-                                </td>
-                                <td colspan="2" class="align-middle">
-                                    <strong style="font-size: medium;">IVA:</strong><br>
-                                </td>
-                                <td colspan="1" class="align-middle">
-                                    <strong style="font-size: medium;">$2318.40MXN</strong><br>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="7" class="bg-white border-0">
-                                </td>
-                                <td colspan="2" class="align-middle">
-                                    <strong style="font-size: medium;">Total:</strong><br>
-                                </td>
-                                <td colspan="1" class="align-middle">
-                                    <strong style="font-size: medium;">$16808.40MXN</strong><br>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="7" class="bg-white border-0">
-                                </td>
-                                <td colspan="3" class="align-middle">
-                                    <button class="btn btn-success col-12 mb-1 mt-1">Imprimir</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <?php if ($quote_products) : ?>
+                        <table class="table table-striped table-sm">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Producto</th>
+                                    <th>Marca</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio unitario sin IVA</th>
+                                    <th>Precio unitario con IVA</th>
+                                    <th>Precio total sin IVA</th>
+                                    <th>Precio total con IVA</th>
+                                    <th>Editar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($quote_products as $quote_product) : ?>
+                                    <tr>
+                                        <td class="align-middle"><img src="<?php echo RUTA . $quote_product['image']; ?>" alt="" width="60" height="60"></td>
+                                        <td class="align-middle"><?php echo $quote_product['product']; ?></td>
+                                        <td class="align-middle"><?php echo $quote_product['brand']; ?></td>
+                                        <td class="align-middle"><?php echo $quote_product['amount']; ?></td>
+                                        <td class="align-middle">$ <?php echo number_format($quote_product['unit_price'], 2); ?> MXN</td>
+                                        <td class="align-middle">$ <?php echo number_format(($quote_product['unit_price'] * $quote_product['iva'] + $quote_product['unit_price']), 2); ?> MXN</td>
+                                        <td class="align-middle">$ <?php echo number_format(($quote_product['unit_price'] * $quote_product['amount']), 2); ?> MXN</td>
+                                        <td class="align-middle">$ <?php $cant = ($quote_product['unit_price'] * $quote_product['amount']);
+                                                                    echo number_format(($cant * $quote_product['iva'] + $cant), 2); ?> MXN</td>
+                                        <td class="align-middle">
+                                            <center><button class="btn btn-primary" data-toggle="modal" data-target="#editProductModal" data-id_quote_product="<?php echo $quote_product['id_quote_product']; ?>" data-amount="<?php echo $quote_product['amount']; ?>" data-note="<?php echo $quote_product['note']; ?>" data-id_product="<?php echo $quote_product['id_product']; ?>"><img src="<?php echo RUTA . 'resource/assets/icons/edit.png' ?>" alt="Editar" width="20" height="20"></button></center>
+                                        </td>
+                                        <td class="align-middle">
+                                            <center><button class="btn btn-danger" data-toggle="modal" data-target="#deleteProductModal" data-id_quote_product="<?php echo $quote_product['id_quote_product']; ?>"><img src="<?php echo RUTA . 'resource/assets/icons/trash.png' ?>" alt="Eliminar" width="20" height="20"></button></center>
+                                        </td>
+                                    </tr>
+                                    <?php if ($quote_product['description'] != null) : ?>
+                                        <tr>
+                                            <td colspan="10">
+                                                <strong style="font-size: medium;">Descripción:</strong><br>
+                                                <?php echo nl2br($quote_product['description']); ?>
+                                            </td>
+                                        </tr>
+                                    <?php endif; ?>
+                                    <?php if ($quote_product['note'] != null) : ?>
+                                        <tr>
+                                            <td class="text-danger" colspan="10">
+                                                <strong style="font-size: medium;">Notas:</strong><br>
+                                                <?php echo nl2br($quote_product['note']); ?>
+                                            </td>
+                                        </tr>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                                <tr>
+                                    <td colspan="10" class="bg-white border-0">
+                                        <hr>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="bg-white border-0">
+                                    </td>
+                                    <td colspan="2" class="align-middle">
+                                        <strong style="font-size: medium;">Subtotal:</strong><br>
+                                    </td>
+                                    <td colspan="2" class="align-middle text-right">
+                                        <strong style="font-size: medium;">$ <?php echo number_format($subtotal_price['total_price'], 2); ?> MXN</strong><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="bg-white border-0">
+                                    </td>
+                                    <td colspan="2" class="align-middle">
+                                        <strong style="font-size: medium;">IVA:</strong><br>
+                                    </td>
+                                    <td colspan="2" class="align-middle text-right">
+                                        <strong style="font-size: medium;">$ <?php echo number_format(($subtotal_price['total_price'] * $subtotal_price['iva']), 2); ?> MXN</strong><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="bg-white border-0">
+                                    </td>
+                                    <td colspan="2" class="align-middle">
+                                        <strong style="font-size: medium;">Total:</strong><br>
+                                    </td>
+                                    <td colspan="2" class="align-middle text-right">
+                                        <strong style="font-size: medium;">$ <?php echo number_format(($subtotal_price['total_price'] * $subtotal_price['iva']) + $subtotal_price['total_price'], 2); ?> MXN</strong><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="7" class="bg-white border-0">
+                                    </td>
+                                    <td colspan="3" class="align-middle">
+                                        <button class="btn btn-success col-12 mb-1 mt-1">Imprimir</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    <?php else : ?>
+                        <table class="table table-striped table-sm">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Producto</th>
+                                    <th>Marca</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio unitario sin IVA</th>
+                                    <th>Precio unitario con IVA</th>
+                                    <th>Precio total sin IVA</th>
+                                    <th>Precio total con IVA</th>
+                                    <th>Editar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th colspan="10">
+                                        <center>
+                                            <strong style="font-size: 25px;">No hay datos.</strong>
+                                        </center>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    <?php endif; ?>
                 </div>
             </main>
         </div>
@@ -117,12 +159,14 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="#" method="POST">
+                    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                         <div class="form-group">
                             <label for="product" class="col-form-label">Seleccionar un producto:</label>
                             <select class="form-control" id="product" name="product" required>
                                 <option selected></option>
-                                <option value="1">Mesa Riñon 1 Cercha Acero Inox</option>
+                                <?php foreach ($products as $product) : ?>
+                                    <option value="<?php echo $product['id_product']; ?>"><?php echo $product['product']; ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -131,8 +175,10 @@
                         </div>
                         <div class="form-group">
                             <label for="note" class="col-form-label">Nota:</label>
-                            <textarea class="form-control" id="note" placeholder="Opcional"></textarea>
+                            <textarea class="form-control" id="note" name="note" placeholder="Opcional"></textarea>
                         </div>
+                        <input type="hidden" class="form-control" id="id_quote" name="id_quote" value="<?php echo $id_quote; ?>" required>
+                        <input type="hidden" class="form-control" id="title" name="title" value="<?php echo $title; ?>" required>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -154,13 +200,15 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="#" method="POST">
-                        <input type="hidden" id="id_quote_product" name="id_quote_product">
+                    <form action="<?php echo htmlspecialchars(RUTA . '/dashboard/routes/quote_product/edit.php'); ?>" method="POST">
+                        <input type="hidden" class="form-control" id="id_quote_product" name="id_quote_product" required>
                         <div class="form-group">
                             <label for="product" class="col-form-label">Seleccionar un producto:</label>
                             <select class="form-control" id="product" name="product" required>
                                 <option selected></option>
-                                <option value="1">Mesa Riñon 1 Cercha Acero Inox</option>
+                                <?php foreach ($products as $product) : ?>
+                                    <option value="<?php echo $product['id_product']; ?>"><?php echo $product['product']; ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -169,8 +217,10 @@
                         </div>
                         <div class="form-group">
                             <label for="note" class="col-form-label">Nota:</label>
-                            <textarea class="form-control" id="note" placeholder="Opcional"></textarea>
+                            <textarea class="form-control" id="note" name="note" placeholder="Opcional"></textarea>
                         </div>
+                        <input type="hidden" class="form-control" id="id_quote" name="id_quote" value="<?php echo $id_quote; ?>" required>
+                        <input type="hidden" class="form-control" id="title" name="title" value="<?php echo $title; ?>" required>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -181,7 +231,7 @@
         </div>
     </div>
 
-    <!-- Modal eliminar cotización -->
+    <!-- Modal eliminar producto a cotizazar-->
     <div class="modal fade" id="deleteProductModal" tabindex="-1" role="dialog" aria-labelledby="deleteProductModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -191,10 +241,12 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="#" method="POST">
+                <form action="<?php echo htmlspecialchars(RUTA . '/dashboard/routes/quote_product/delete.php'); ?>" method="POST">
                     <div class="modal-body">
                         <p id="message">¿Estas segur@ de eliminar el registro?</p>
                         <input type="hidden" id="id_quote_product" name="id_quote_product">
+                        <input type="hidden" class="form-control" id="id_quote" name="id_quote" value="<?php echo $id_quote; ?>" required>
+                        <input type="hidden" class="form-control" id="title" name="title" value="<?php echo $title; ?>" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
