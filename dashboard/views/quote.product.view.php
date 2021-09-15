@@ -111,7 +111,7 @@
                                     <td colspan="7" class="bg-white border-0">
                                     </td>
                                     <td colspan="3" class="align-middle">
-                                        <button class="btn btn-success col-12 mb-1 mt-1">Imprimir</button>
+                                        <a class="btn btn-success col-12 mb-1 mt-1" target="_blank" href="<?php echo MENU . 'formato.php?id_quote=' .  base64_encode($id_quote) . '&title=' . base64_encode($title); ?>">Imprimir</a>
                                     </td>
                                 </tr>
                             </tbody>
