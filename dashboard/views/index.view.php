@@ -48,7 +48,7 @@
                                         <td class="align-middle"><?php echo date('d/m/Y', strtotime($quote['date'])); ?></td>
                                         <?php if ($quote_product_exist) : ?>
                                             <td class="align-middle">
-                                                <center><a class="btn btn-info"><img src="<?php echo RUTA . 'resource/assets/icons/printing.png' ?>" alt="Imprimir" width="20" height="20"></a></center>
+                                                <center><a class="btn btn-info" target="_blank" href="<?php echo RUTA . 'dashboard/formato.php?id_quote=' .  base64_encode($quote['id_quote']) . '&title=' . base64_encode($quote['title']); ?>"><img src="<?php echo RUTA . 'resource/assets/icons/printing.png' ?>" alt="Imprimir" width="20" height="20"></a></center>
                                             </td>
                                         <?php else : ?>
                                             <td class="align-middle">
