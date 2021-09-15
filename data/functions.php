@@ -108,3 +108,13 @@ function all_products($conexion)
     $resultado = $statement->fetchAll();
     return ($resultado) ? $resultado : false;
 }
+
+// Funcion para renderizar la vista del pdf
+function report($quote_products, $subtotal_price)
+{
+    ob_start();
+    require  'views/formato.view.php';
+    $html = ob_get_clean();
+
+    return $html;
+}
