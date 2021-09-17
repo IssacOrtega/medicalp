@@ -132,6 +132,10 @@ $('#productEditModal').on('show.bs.modal', function (event) {
   var id_product = button.data('id_product')
   var product = button.data('product')
   var brand = button.data('brand')
+  var iva = button.data('iva')
+  var unit_price = button.data('unit_price')
+  var description = button.data('description')
+  var image_save = button.data('img_name')
   var image = button.data('image')
 
   var modal = $(this)
@@ -139,6 +143,10 @@ $('#productEditModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body #id_product').val(id_product)
   modal.find('.modal-body #product').val(product)
   modal.find('.modal-body #brand').val(brand)
+  modal.find('.modal-body #iva').val(iva)
+  modal.find('.modal-body #price').val(unit_price)
+  modal.find('.modal-body #description').val(description)
+  modal.find('.modal-body #image_save').val(image_save)
   modal.find('.modal-body #thumb').html(image)
 });
 
@@ -147,10 +155,12 @@ $('#productDeleteModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
   var id_product = button.data('id_product')
   var product = button.data('product')
+  var image = button.data('image')
 
   var modal = $(this)
   modal.find('.modal-title').text('Eliminar producto (' + product + ')')
   modal.find('.modal-body #id_product').val(id_product)
+  modal.find('.modal-body #image').val(image)
   modal.find('.modal-body #message').html('¿Estas segur@ de eliminar el registro de <strong>"' + product + '"</strong>?')
 });
 
