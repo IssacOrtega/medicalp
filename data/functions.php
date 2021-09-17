@@ -102,10 +102,17 @@ function subtotal_price($conexion, $id_quote)
     return ($resultado) ? $resultado : false;
 }
 
-function all_products($conexion)
+function all_products($conexion, $search = null)
 {
-    $statement = $conexion->query("SELECT * FROM product");
-    $resultado = $statement->fetchAll();
+    if ($search == null) {
+        $statement = $conexion->query("SELECT * FROM product ORDER BY id_product DESC");
+        $resultado = $statement->fetchAll();   
+    } else {
+        $statement = $conexion->query("SELECT * FROM product WHERE product LIKE '%$search%' 
+        OR brand LIKE '%$search%' OR unit_price LIKE '%$search%' ORDER BY id_product DESC");
+        $resultado = $statement->fetchAll();
+    }
+    
     return ($resultado) ? $resultado : false;
 }
 
