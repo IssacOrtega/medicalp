@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if ($id_quote != '') {
         $quote_products = quote_product_all($conexion, $id_quote);
         $subtotal_price = subtotal_price($conexion, $id_quote);
-        $products = all_products($conexion);
+        $products = all_products($conexion, null);
     } else {
         header('Location: ' . MENU);
     }
