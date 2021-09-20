@@ -16,37 +16,70 @@
                         <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#newUserModal">+ Nuevo usuario</button>
                     </div>
                 </div>
+                <?php if (!empty($msg)) {
+                    echo $msg;
+                } ?>
                 <div class="table-responsive">
-                    <table class="table table-striped table-sm">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>#</th>
-                                <th>Nombre</th>
-                                <th>Teléfono</th>
-                                <th>Permisos</th>
-                                <th>Usuario</th>
-                                <th>Email</th>
-                                <th>Editar</th>
-                                <th>Eliminar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="align-middle">1</td>
-                                <td class="align-middle">Gerardo Issac Ortega Cervantes</td>
-                                <td class="align-middle"><a href="tel:5516554683">5516554683</a></td>
-                                <td class="align-middle">Administrador</td>
-                                <td class="align-middle">iortega</td>
-                                <td class="align-middle"><a href="mailto:gortega@gmail.com">gortega@gmail.com</a></td>
-                                <td class="align-middle">
-                                    <center><button class="btn btn-primary" data-toggle="modal" data-target="#editUserModal" data-id_user="1" data-name="Gerardo Issac Ortega Cervantes" data-phone="5516554683" data-roll="Administrador" data-user="iortega" data-email="gissac.ortega@gmail.com"><img src="<?php echo RUTA . 'resource/assets/icons/edit.png' ?>" alt="Imprimir" width="20" height="20"></button></center>
-                                </td>
-                                <td class="align-middle">
-                                    <center><button class="btn btn-danger" data-toggle="modal" data-target="#deleteUserModal" data-id_user="1" data-name="Gerardo Issac Ortega Cervantes"><img src="<?php echo RUTA . 'resource/assets/icons/trash.png' ?>" alt="Imprimir" width="20" height="20"></button></center>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <?php if ($users) : ?>
+                        <table class="table table-striped table-sm">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nombre</th>
+                                    <th>Teléfono</th>
+                                    <th>Permisos</th>
+                                    <th>Usuario</th>
+                                    <th>Email</th>
+                                    <th>Editar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($users as $user) : ?>
+                                    <tr>
+                                        <td class="align-middle"><?php echo $user['id_user']; ?></td>
+                                        <td class="align-middle"><?php echo $user['name']; ?></td>
+                                        <td class="align-middle"><a href="tel:<?php echo $user['phone']; ?>"><?php echo $user['phone']; ?></a></td>
+                                        <td class="align-middle"><?php echo $user['roll']; ?></td>
+                                        <td class="align-middle"><?php echo $user['user']; ?></td>
+                                        <td class="align-middle"><a href="mailto:<?php echo $user['email']; ?>"><?php echo $user['email']; ?></a></td>
+                                        <td class="align-middle">
+                                            <center><button class="btn btn-primary" data-toggle="modal" data-target="#editUserModal" data-id_user="<?php echo $user['id_user']; ?>" data-name="<?php echo $user['name']; ?>" data-phone="<?php echo $user['phone']; ?>" data-roll="<?php echo $user['roll']; ?>" data-user="<?php echo $user['user']; ?>" data-email="<?php echo $user['email']; ?>"><img src="<?php echo RUTA . 'resource/assets/icons/edit.png' ?>" alt="Imprimir" width="20" height="20"></button></center>
+                                        </td>
+                                        <td class="align-middle">
+                                            <?php if ($user['user'] != 'fmm') : ?>
+                                                <center><button class="btn btn-danger" data-toggle="modal" data-target="#deleteUserModal" data-id_user="<?php echo $user['id_user']; ?>" data-name="<?php echo $user['name']; ?>"><img src="<?php echo RUTA . 'resource/assets/icons/trash.png' ?>" alt="Imprimir" width="20" height="20"></button></center>
+                                            <?php endif; ?>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    <?php else : ?>
+                        <table class="table table-striped table-sm">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nombre</th>
+                                    <th>Teléfono</th>
+                                    <th>Permisos</th>
+                                    <th>Usuario</th>
+                                    <th>Email</th>
+                                    <th>Editar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th colspan="8">
+                                        <center>
+                                            <strong style="font-size: 25px;">No hay datos.</strong>
+                                        </center>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    <?php endif; ?>
                 </div>
             </main>
         </div>
@@ -63,7 +96,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="#" method="POST">
+                    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                         <div class="form-group">
                             <label for="name" class="col-form-label">Nombre completo:</label>
                             <input type="text" class="form-control" id="name" name="name" required>
@@ -117,7 +150,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="#" method="POST">
+                    <form action="<?php echo htmlspecialchars(RUTA . '/dashboard/routes/user/edit.php'); ?>" method="POST">
                         <input type="hidden" id="id_user" name="id_user">
                         <div class="form-group">
                             <label for="name" class="col-form-label">Nombre completo:</label>
@@ -171,7 +204,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="#" method="POST">
+                <form action="<?php echo htmlspecialchars(RUTA . '/dashboard/routes/user/delete.php'); ?>" method="POST">
                     <div class="modal-body">
                         <p id="message">¿Estas segur@ de eliminar el registro?</p>
                         <input type="hidden" id="id_user" name="id_user">
