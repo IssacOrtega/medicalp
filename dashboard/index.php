@@ -37,7 +37,7 @@ if ($_SESSION['roll'] != 'Usuario') {
 }
 
 // Trae todo el catalogo de clientes
-$clients = all_clients($conexion);
+$clients = all_clients($conexion, null);
 
 // Mensaje de error para campos vacios
 if (isset($_SESSION['empty'])) {
