@@ -65,10 +65,17 @@ function quote_product_exist($conexion, $id_quote)
 }
 
 // Funcion para traer todos los clientes
-function all_clients($conexion)
+function all_clients($conexion, $search = null)
 {
-    $statement = $conexion->query("SELECT * FROM client");
-    $resultado = $statement->fetchAll();
+    if ($search == null) {
+        $statement = $conexion->query("SELECT * FROM client ORDER BY id_client DESC");
+        $resultado = $statement->fetchAll();
+    } else {
+        $statement = $conexion->query("SELECT * FROM client WHERE name_client LIKE '%$search%' 
+        OR phone_client LIKE '%$search%' OR business LIKE '%$search%' ORDER BY id_client DESC");
+        $resultado = $statement->fetchAll();
+    }
+    
     return ($resultado) ? $resultado : false;
 }
 
@@ -124,4 +131,35 @@ function report($quote_products, $subtotal_price)
     $html = ob_get_clean();
 
     return $html;
+}
+
+// funcion para traer a todos los usuarios
+function all_users($conexion, $search = null){
+    if ($search == null) {
+        $statement = $conexion->query("SELECT * FROM user ORDER BY id_user ASC");
+        $resultado = $statement->fetchAll();
+    } else {
+        $statement = $conexion->query("SELECT * FROM user WHERE name LIKE '%$search%' 
+        OR phone LIKE '%$search%' OR roll LIKE '%$search%' OR user LIKE '%$search%' OR email LIKE '%$search%' ORDER BY id_user ASC");
+        $resultado = $statement->fetchAll();
+    }
+
+    return ($resultado) ? $resultado : false;
+}
+
+function validate_users($conexion, $user = null, $email = null){
+    
+    if($user == null){
+        $statement = $conexion->prepare('SELECT * FROM user WHERE email = :email LIMIT 1');
+        $statement->execute(array(':email' => $email));
+        $resultado = $statement->fetch();
+    } elseif ($email == null){
+        $statement = $conexion->prepare('SELECT * FROM user WHERE user = :user LIMIT 1');
+        $statement->execute(array(':user' => $user));
+        $resultado = $statement->fetch();
+        
+    }
+    
+    
+    return ($resultado) ? $resultado : false;
 }
