@@ -33,7 +33,7 @@
 <body class="text-center">
 
     <form class="form-signin" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-        <img class="mb-4" src="<?php echo RUTA . 'resource/assets/brand/Logo.png' ?>" alt="Medical Planet" width="150" height="150">
+        <img class="mb-4" src="<?php echo RUTA . 'resource/assets/brand/logo.png' ?>" alt="Medical Planet" width="150" height="150">
         <h1 class="h3 mb-3 font-weight-normal">Medical Planet</h1>
         <label for="inputUser" class="sr-only">Usuario</label>
         <input type="text" id="inputUser" name="user" class="form-control" placeholder="Usuario" required autofocus>
