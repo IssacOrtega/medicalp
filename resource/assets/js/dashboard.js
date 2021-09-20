@@ -179,8 +179,18 @@ $('#editUserModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body #id_user').val(id_user)
   modal.find('.modal-body #name').val(name)
   modal.find('.modal-body #phone').val(phone)
+  if (user == 'fmm') {
+    modal.find('.modal-body #roll').attr('disabled', 'on')
+  } else {
+    modal.find('.modal-body #roll').removeAttr('disabled')
+  }
   modal.find('.modal-body #roll').val(roll)
   modal.find('.modal-body #email').val(email)
+  if(user == 'fmm') {
+    modal.find('.modal-body #user').attr('disabled', 'on')
+  } else {
+    modal.find('.modal-body #user').removeAttr('disabled')
+  }
   modal.find('.modal-body #user').val(user)
 });
 
