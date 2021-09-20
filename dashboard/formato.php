@@ -24,23 +24,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if ($id_quote != '') {
         $quote_products = quote_product_all($conexion, $id_quote);
         $subtotal_price = subtotal_price($conexion, $id_quote);
-
-        $css = file_get_contents(RUTA . 'resource/assets/css/style.css');
+        $css = file_get_contents(RUTA . 'resource/assets/css/style.css?v=1');
         $mpdf = new Mpdf([]);
-        $mpdf->SetTitle('Cotización');
+        $mpdf->SetTitle('Detalle');
         $template = report($quote_products, $subtotal_price);
+        $html = mb_convert_encoding($template, 'UTF-8', 'UTF-8');
         $mpdf->writeHTML($css, \Mpdf\HTMLParserMode::HEADER_CSS);
-        $mpdf->WriteHTML($template, \Mpdf\HTMLParserMode::HTML_BODY);
+        $mpdf->WriteHTML($html, \Mpdf\HTMLParserMode::HTML_BODY);
         $mpdf->output('cotizacion_' . uniqid() . '.pdf', 'I');
-
     } else {
         header('Location: ' . MENU);
     }
 }
 
 
-/* Condicional para verficar si las variable de sesión de usuario esta seteada 
-nos redireccione a la pagina de inicio de la aplicación */
+/* Condicional para verficar si las variable de sesi贸n de usuario esta seteada 
+nos redireccione a la pagina de inicio de la aplicaci贸n */
 if (!isset($_SESSION['user'])) {
     header('Location: ' . RUTA);
 }
